@@ -50,6 +50,9 @@ module tb_exp_l64_fp32;
     reg [31:0] vec_x   [0:NUM_VECS-1];
     reg [31:0] vec_y_g [0:NUM_VECS-1]; // golden outputs (from Python model)
 
+    integer i;
+    integer idx;
+
     initial begin
         // Example test points in [-10.0, 0.0]. Replace with real hex from Python.
         // x = -10.0, -7.5, -5.0, -2.5, -1.0, -0.5, -0.1, 0.0
@@ -64,13 +67,10 @@ module tb_exp_l64_fp32;
 
         // TODO: fill vec_y_g[i] with hex of exp_fp32_l64(x_i) from Python
         // Placeholder: set to zero for now.
-        integer i;
         for (i = 0; i < NUM_VECS; i = i+1) begin
             vec_y_g[i] = 32'h00000000;
         end
     end
-
-    integer idx;
 
     initial begin
         in_valid = 0;

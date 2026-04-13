@@ -1,0 +1,773 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64 (git sha1 d8dab5b32666564eca8e18f412973853ce006e61, clang++ 21.0.0 -fPIC -O3)
+
+-- Running command `read_verilog /Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v;              synth -top fp32_add;              write_json /Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.json' --
+
+1. Executing Verilog-2005 frontend: /Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v
+Parsing Verilog input from `/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v' to AST representation.
+Generating RTLIL representation for module `\fp32_add'.
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \fp32_add
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \fp32_add
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46 in module fp32_add.
+Marked 1 switch rules as full_case in process $proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:161$45 in module fp32_add.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 7 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+     1/12: $2\norm_S[0:0]
+     2/12: $2\norm_R[0:0]
+     3/12: $2\norm_G[0:0]
+     4/12: $2\norm_exp[8:0]
+     5/12: $2\norm_mant[22:0]
+     6/12: $2\lshift_out[26:0]
+     7/12: $1\norm_S[0:0]
+     8/12: $1\norm_R[0:0]
+     9/12: $1\norm_G[0:0]
+    10/12: $1\norm_exp[8:0]
+    11/12: $1\norm_mant[22:0]
+    12/12: $1\lshift_out[26:0]
+Creating decoders for process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:161$45'.
+     1/1: $1\sum_lzc[4:0]
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fp32_add.\norm_mant' from process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+No latch inferred for signal `\fp32_add.\norm_exp' from process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+No latch inferred for signal `\fp32_add.\norm_G' from process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+No latch inferred for signal `\fp32_add.\norm_R' from process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+No latch inferred for signal `\fp32_add.\norm_S' from process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+No latch inferred for signal `\fp32_add.\lshift_out' from process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+No latch inferred for signal `\fp32_add.\sum_lzc' from process `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:161$45'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+Removing empty process `fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:197$46'.
+Found and cleaned up 1 empty switch in `\fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:161$45'.
+Removing empty process `fp32_add.$proc$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:161$45'.
+Cleaned up 3 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+<suppressed ~8 debug messages>
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+Removed 3 unused cells and 89 unused wires.
+<suppressed ~5 debug messages>
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module fp32_add...
+Found and reported 0 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 117 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Computing hashes of 112 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp32_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$109.
+    dead port 1/2 on $mux $procmux$103.
+    dead port 1/2 on $mux $procmux$97.
+    dead port 1/2 on $mux $procmux$91.
+    dead port 1/2 on $mux $procmux$85.
+Removed 5 multiplexer ports.
+<suppressed ~67 debug messages>
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp32_add.
+Performed a total of 0 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 107 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+Removed 0 unused cells and 10 unused wires.
+<suppressed ~1 debug messages>
+
+2.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp32_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~62 debug messages>
+
+2.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp32_add.
+Performed a total of 0 changes.
+
+2.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 107 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.7. Executing FSM pass (extract and optimize FSM).
+
+2.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 107 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp32_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~62 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp32_add.
+Performed a total of 0 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 107 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+2.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 3 bits (of 8) from port B of cell fp32_add.$gt$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:109$29 ($gt).
+Removed top 1 bits (of 25) from port A of cell fp32_add.$sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:120$33 ($sub).
+Removed top 1 bits (of 25) from port B of cell fp32_add.$sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:120$33 ($sub).
+Removed top 1 bits (of 25) from port A of cell fp32_add.$add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:121$34 ($add).
+Removed top 1 bits (of 25) from port B of cell fp32_add.$add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:121$34 ($add).
+Removed top 24 bits (of 25) from port B of cell fp32_add.$sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:141$39 ($sub).
+Removed top 2 bits (of 3) from port B of cell fp32_add.$add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:143$42 ($add).
+Removed top 1 bits (of 9) from port A of cell fp32_add.$add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:203$47 ($add).
+Removed top 8 bits (of 9) from port B of cell fp32_add.$add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:203$47 ($add).
+Removed top 1 bits (of 9) from port A of cell fp32_add.$sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:220$50 ($sub).
+Removed top 4 bits (of 9) from port B of cell fp32_add.$sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:220$50 ($sub).
+Removed top 1 bits (of 24) from port A of cell fp32_add.$add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:232$55 ($add).
+Removed top 23 bits (of 24) from port B of cell fp32_add.$add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:232$55 ($add).
+Removed top 8 bits (of 9) from port B of cell fp32_add.$add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:236$56 ($add).
+Removed top 1 bits (of 9) from port B of cell fp32_add.$ge$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:259$69 ($ge).
+Removed top 1 bits (of 32) from mux cell fp32_add.$ternary$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:269$75 ($mux).
+Removed top 1 bits (of 32) from mux cell fp32_add.$ternary$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:268$76 ($mux).
+Removed top 1 bits (of 32) from mux cell fp32_add.$ternary$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:267$77 ($mux).
+Removed top 23 bits (of 24) from port B of cell fp32_add.$procmux$137_CMP0 ($eq).
+Removed top 22 bits (of 23) from port B of cell fp32_add.$procmux$138_CMP0 ($eq).
+Removed top 21 bits (of 22) from port B of cell fp32_add.$procmux$139_CMP0 ($eq).
+Removed top 20 bits (of 21) from port B of cell fp32_add.$procmux$140_CMP0 ($eq).
+Removed top 19 bits (of 20) from port B of cell fp32_add.$procmux$141_CMP0 ($eq).
+Removed top 18 bits (of 19) from port B of cell fp32_add.$procmux$142_CMP0 ($eq).
+Removed top 17 bits (of 18) from port B of cell fp32_add.$procmux$143_CMP0 ($eq).
+Removed top 16 bits (of 17) from port B of cell fp32_add.$procmux$144_CMP0 ($eq).
+Removed top 15 bits (of 16) from port B of cell fp32_add.$procmux$145_CMP0 ($eq).
+Removed top 14 bits (of 15) from port B of cell fp32_add.$procmux$146_CMP0 ($eq).
+Removed top 13 bits (of 14) from port B of cell fp32_add.$procmux$147_CMP0 ($eq).
+Removed top 12 bits (of 13) from port B of cell fp32_add.$procmux$148_CMP0 ($eq).
+Removed top 11 bits (of 12) from port B of cell fp32_add.$procmux$149_CMP0 ($eq).
+Removed top 10 bits (of 11) from port B of cell fp32_add.$procmux$150_CMP0 ($eq).
+Removed top 9 bits (of 10) from port B of cell fp32_add.$procmux$151_CMP0 ($eq).
+Removed top 8 bits (of 9) from port B of cell fp32_add.$procmux$152_CMP0 ($eq).
+Removed top 7 bits (of 8) from port B of cell fp32_add.$procmux$153_CMP0 ($eq).
+Removed top 6 bits (of 7) from port B of cell fp32_add.$procmux$154_CMP0 ($eq).
+Removed top 5 bits (of 6) from port B of cell fp32_add.$procmux$155_CMP0 ($eq).
+Removed top 4 bits (of 5) from port B of cell fp32_add.$procmux$156_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell fp32_add.$procmux$157_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell fp32_add.$procmux$158_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell fp32_add.$procmux$159_CMP0 ($eq).
+
+2.10. Executing PEEPOPT pass (run peephole optimizers).
+
+2.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module fp32_add:
+  creating $macc model for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:236$56 ($add).
+  creating $macc model for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:232$55 ($add).
+  creating $macc model for $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:220$50 ($sub).
+  creating $macc model for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:203$47 ($add).
+  creating $macc model for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:143$42 ($add).
+  creating $macc model for $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:141$39 ($sub).
+  creating $macc model for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:121$34 ($add).
+  creating $macc model for $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:120$33 ($sub).
+  creating $macc model for $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:72$24 ($sub).
+  creating $alu model for $macc $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:72$24.
+  creating $alu model for $macc $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:120$33.
+  creating $alu model for $macc $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:121$34.
+  creating $alu model for $macc $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:141$39.
+  creating $alu model for $macc $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:143$42.
+  creating $alu model for $macc $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:203$47.
+  creating $alu model for $macc $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:220$50.
+  creating $alu model for $macc $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:232$55.
+  creating $alu model for $macc $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:236$56.
+  creating $alu model for $ge$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:259$69 ($ge): new $alu
+  creating $alu model for $gt$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:109$29 ($gt): new $alu
+  creating $alu model for $ge$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:54$17 ($ge): new $alu
+  creating $alu cell for $ge$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:54$17: $auto$alumacc.cc:512:replace_alu$164
+  creating $alu cell for $gt$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:109$29: $auto$alumacc.cc:512:replace_alu$177
+  creating $alu cell for $ge$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:259$69: $auto$alumacc.cc:512:replace_alu$188
+  creating $alu cell for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:236$56: $auto$alumacc.cc:512:replace_alu$201
+  creating $alu cell for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:232$55: $auto$alumacc.cc:512:replace_alu$204
+  creating $alu cell for $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:220$50: $auto$alumacc.cc:512:replace_alu$207
+  creating $alu cell for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:203$47: $auto$alumacc.cc:512:replace_alu$210
+  creating $alu cell for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:143$42: $auto$alumacc.cc:512:replace_alu$213
+  creating $alu cell for $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:141$39: $auto$alumacc.cc:512:replace_alu$216
+  creating $alu cell for $add$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:121$34: $auto$alumacc.cc:512:replace_alu$219
+  creating $alu cell for $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:120$33: $auto$alumacc.cc:512:replace_alu$222
+  creating $alu cell for $sub$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:72$24: $auto$alumacc.cc:512:replace_alu$225
+  created 12 $alu and 0 $macc cells.
+
+2.13. Executing SHARE pass (SAT-based resource sharing).
+Found 2 cells in module fp32_add that may be considered for resource sharing.
+  Analyzing resource sharing options for $shr$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:91$27 ($shr):
+    Found 10 activation_patterns using ctrl signal { \underflow \overflow \any_inf \inf_cancel \any_nan \result_zero \rounded [23] $auto$rtlil.cc:3255:Not$187 }.
+    No candidates found.
+  Analyzing resource sharing options for $shl$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:218$49 ($shl):
+    Found 4 activation_patterns using ctrl signal { \underflow \overflow \any_inf \inf_cancel \any_nan \result_zero \rounded [23] \sum_adj [24:23] }.
+    No candidates found.
+
+2.14. Executing OPT pass (performing simple optimizations).
+
+2.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+<suppressed ~2 debug messages>
+
+2.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 121 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp32_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~57 debug messages>
+
+2.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp32_add.
+Performed a total of 0 changes.
+
+2.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 121 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+Removed 1 unused cells and 4 unused wires.
+<suppressed ~3 debug messages>
+
+2.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp32_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~57 debug messages>
+
+2.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp32_add.
+Performed a total of 0 changes.
+
+2.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 120 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.14.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.15. Executing MEMORY pass.
+
+2.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+2.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.17. Executing OPT pass (performing simple optimizations).
+
+2.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 120 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.17.5. Finished fast OPT passes.
+
+2.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.19. Executing OPT pass (performing simple optimizations).
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 120 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp32_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~57 debug messages>
+
+2.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp32_add.
+Performed a total of 0 changes.
+
+2.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 120 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.19.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $mux $ternary$/Users/lyle/Project/ASIC/asic-fp32-exp/asic/ip/fp32_add.v:120$35 in front of them:
+        $auto$alumacc.cc:512:replace_alu$222
+        $auto$alumacc.cc:512:replace_alu$219
+
+2.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+2.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+<suppressed ~1 debug messages>
+
+2.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp32_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~57 debug messages>
+
+2.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp32_add.
+Performed a total of 0 changes.
+
+2.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 120 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.19.14. Executing OPT_SHARE pass.
+
+2.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+2.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp32_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~57 debug messages>
+
+2.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp32_add.
+Performed a total of 0 changes.
+
+2.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 120 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.19.22. Executing OPT_SHARE pass.
+
+2.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+
+2.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.19.26. Finished fast OPT passes. (There is nothing left to do.)
+
+2.20. Executing TECHMAP pass (map to technology primitives).
+
+2.20.1. Executing Verilog-2005 frontend: /opt/homebrew/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/opt/homebrew/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+2.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Running "alumacc" on wrapper $extern:wrap:$neg:Y_WIDTH=25:A_WIDTH=25:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:Y_WIDTH=25:A_WIDTH=25:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:Y_WIDTH=25:A_WIDTH=25:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod$a1bc51c02ce12ac21eb18988e83292af48ed7d72\_90_alu for cells of type $alu.
+Using template $paramod$65216b304e0e600b68271885889e654586c4a1b6\_90_alu for cells of type $alu.
+Using template $paramod$6b2e55a5f89bfecc6aebd640439f7b15a0e51965\_90_alu for cells of type $alu.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using template $paramod$a2af9b43308e3114c3b5dd3f4dc3329b2387395d\_90_alu for cells of type $alu.
+Using template $paramod$986b04b17d1f027b27a6d83fac4a9eba0d30fbdd\_90_pmux for cells of type $pmux.
+Using template $paramod$ee96caa5ff6c189e32bbc182641c7922643956ce\_90_alu for cells of type $alu.
+Using template $paramod$7fa1593b7bd93374b34bfd9ac1fe703a5be6addb\_90_alu for cells of type $alu.
+Using template $paramod$53700bbee849b2010ad0b60a61ccd204a10e24ca\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$cd54e322aa4265ca236096fe4bb634aaec4e39b4\_90_alu for cells of type $alu.
+Using template $paramod$5d2e07eca6b9fbd538aff231e6f05d9604b7a77e\_90_alu for cells of type $alu.
+Using template $paramod$ebf89ea36a793f0f77858f212141d47c833068ad\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$constmap:dd3c698579a8a4bd831e23815e477c18c441d0aa$paramod$62fe63dd719310959b7b60deef52f5e3f60de4bf\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod$constmap:17cd3f7861d5ab05ab4b1bee32f2541e54e0cc50$paramod$e7d9c5bff5ffad7b2e57eba57449af102b4d3478\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$b7e1f79258b87e4a83a116a743fd12e845b7ee99\_90_alu for cells of type $alu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011001 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001001 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011111 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011111 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~3191 debug messages>
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+<suppressed ~1814 debug messages>
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 2457 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Computing hashes of 2269 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Computing hashes of 2203 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Computing hashes of 2186 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Computing hashes of 2183 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Computing hashes of 2181 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+<suppressed ~828 debug messages>
+Removed a total of 276 cells.
+
+2.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+Removed 154 unused cells and 937 unused wires.
+<suppressed ~157 debug messages>
+
+2.21.5. Finished fast OPT passes.
+
+2.22. Executing ABC pass (technology mapping using ABC).
+
+2.22.1. Extracting gate netlist of module `\fp32_add' to `<abc-temp-dir>/input.blif'..
+
+2.22.1.1. Executed ABC.
+Extracted 2027 gates and 2093 wires to a netlist network with 64 inputs and 32 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      481
+ABC RESULTS:            ANDNOT cells:       74
+ABC RESULTS:               MUX cells:      266
+ABC RESULTS:              NAND cells:      312
+ABC RESULTS:               NOR cells:       41
+ABC RESULTS:               NOT cells:       64
+ABC RESULTS:                OR cells:       72
+ABC RESULTS:             ORNOT cells:      112
+ABC RESULTS:              XNOR cells:       72
+ABC RESULTS:               XOR cells:       44
+ABC RESULTS:        internal signals:     1997
+ABC RESULTS:           input signals:       64
+ABC RESULTS:          output signals:       32
+Removing temp directory.
+Removing global temp directory.
+
+2.23. Executing OPT pass (performing simple optimizations).
+
+2.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp32_add.
+
+2.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp32_add'.
+Computing hashes of 1538 cells of `\fp32_add'.
+Finding duplicate cells in `\fp32_add'.
+Removed a total of 0 cells.
+
+2.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp32_add..
+Removed 0 unused cells and 702 unused wires.
+<suppressed ~53 debug messages>
+
+2.23.5. Finished fast OPT passes.
+
+2.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fp32_add'. Setting top module to fp32_add.
+
+2.24.1. Analyzing design hierarchy..
+Top module:  \fp32_add
+
+2.24.2. Analyzing design hierarchy..
+Top module:  \fp32_add
+Removed 0 unused modules.
+
+2.25. Printing statistics.
+
+=== fp32_add ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1517 wires
+     1741 wire bits
+       11 public wires
+      235 public wire bits
+        3 ports
+       96 port bits
+     1538 cells
+       74   $_ANDNOT_
+      481   $_AND_
+      266   $_MUX_
+      312   $_NAND_
+       41   $_NOR_
+       64   $_NOT_
+      112   $_ORNOT_
+       72   $_OR_
+       72   $_XNOR_
+       44   $_XOR_
+
+2.26. Executing CHECK pass (checking for obvious problems).
+Checking module fp32_add...
+Found and reported 0 problems.
+
+3. Executing JSON backend.
+
+End of script. Logfile hash: f8be2eb543, time: 1.46s, user: 0.23s, system: 0.02s, MEM: 38.16 MB peak
+Yosys 0.64 (git sha1 d8dab5b32666564eca8e18f412973853ce006e61, clang++ 21.0.0 -fPIC -O3)
+Time spent: 66% 1x abc (0 sec), 9% 1x techmap (0 sec), ...
